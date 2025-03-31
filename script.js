@@ -9,7 +9,11 @@ function randomOption(list) { return list[Math.floor(Math.random() * list.length
 function random(min, max, exclude = []) {
     let num;
     do {
-        num = Math.floor(Math.random() * (max - min + 1) + min);
+        // num = Math.floor(Math.random() * (max - min + 1) + min);
+        
+        // Calculate psuedorandom number based on time
+        var d = new Date();
+        num = d.getTime() % (max - min + 1) + min;
     } while (exclude.includes(num));
     return num;
 }
